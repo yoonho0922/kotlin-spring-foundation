@@ -8,7 +8,16 @@ class Posts(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-    val title: String,
+    var title: String,
     var content: String,
     val author: String? = null,
-) : BaseTimeEntity()
+) : BaseTimeEntity() {
+
+    fun update(
+        title: String,
+        content: String,
+    ) {
+        this.title = title
+        this.content = content
+    }
+}
